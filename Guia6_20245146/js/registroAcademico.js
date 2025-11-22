@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnViewEstudiantes = document.querySelector("#idBtnMostrarEstudiantes");
 
     btnAddEstudiante.addEventListener("click", addEstudiantes);
-    btnViewEstudiantes/this.addEventListener("click", viewEstudiantes);
+    btnViewEstudiantes.addEventListener("click", viewEstudiantes);
 
     let arrayEstudiantes = new Array();
 
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelector("#inputCarnet").value = "";
             document.querySelector("#inputNombre").value = "";
             document.querySelector("#inputApellidos").value = "";
-            document.querySelector("#inputCarnet").focus()
+            document.querySelector("#inputCarnet").focus();
         } else {
             alert("Faltan campos que completar");
         }
@@ -62,9 +62,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 nombres = arrayEstudiantes[i][1];
                 apellidos = arrayEstudiantes[i][2];
 
-                
+                table += `<tr>`;
+                table += `<td scope ='row' style='font-weight:bold;'>${i+1}</td>`;
+                table += `<td>${carnet}</td>`;
+                table += `<td>${nombres}</td>`; 
+                table += `<td>${apellidos}</td>`;
+                table += `</tr>`;
             }
+
+            table += "</tbody>";
+            table += "</table>";
+            containerEstudiantes.innerHTML = table;
+        } else {
+            alert("No se han registrado estudiantes");
         }
     }
-}
-)
+});

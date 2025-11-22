@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/stylesFunciones.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Ficha de Estudiante</title>
+</head>
+
+<body>
+    <header>
+        <div class="px-3 py-2 text-bg-dark fixed-top">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="../indexFunciones.html"
+                        class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                        <img src="../img/js.png" alt="" width="32" height="32" class="me-2" />
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small nav-bar">
+                        <li class="text-center nav-bar-li-active">
+                            <a href="fichaEstudiante.html" class="nav-link text-white">
+                                <i class="bi bi-person-lines-fill bi-2 d-block"></i>
+                                Ficha Estudiante
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-12 shadow-lg p-3 mt-5 bg-body rounded">
+                <h3>Ficha de Estudiante</h3>
+                <form id="idForm">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="idTxtCarnet"
+                                    placeholder="Carnet del estudiante" />
+                                <label for="idTxtCarnet">
+                                    <i class="bi bi-card-text"></i> Carnet (Ej: AB001)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtNombreCompleto"
+                                    placeholder="Nombre completo">
+                                <label for="idTxtNombreCompleto">
+                                    <i class="bi bi-person-circle"></i> Nombre Completo
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="idTxtDUI"
+                                    placeholder="Número de DUI" />
+                                <label for="idTxtDUI">
+                                    <i class="bi bi-credit-card"></i> DUI (########-#)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtNIT"
+                                    placeholder="Número de NIT">
+                                <label for="idTxtNIT">
+                                    <i class="bi bi-credit-card"></i> NIT (####-######-###-#)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="idTxtFechaNacimiento"
+                                    placeholder="Fecha de nacimiento (DD/MM/YYYY)" />
+                                <label for="idTxtFechaNacimiento">
+                                    <i class="bi bi-calendar-date"></i> Fecha Nacimiento (DD/MM/YYYY)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="idTxtCorreo"
+                                    placeholder="Correo electrónico">
+                                <label for="idTxtCorreo">
+                                    <i class="bi bi-envelope"></i> Correo Electrónico
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="idTxtEdad"
+                                    placeholder="Edad">
+                                <label for="idTxtEdad">
+                                    <i class="bi bi-hash"></i> Edad (solo números)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 pt-3">
+                            <button id="idBtnAgregar" type="button" class="btn btn-success">
+                                <i class="bi bi-person-plus-fill"></i> Guardar Datos
+                            </button>
+                            <button id="idBtnMostrar" type="button" class="btn btn-warning">
+                                <i class="bi bi-people"></i> Mostrar Estudiantes
+                            </button>
+                            <button id="idBtnLimpiar" type="button" class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Limpiar Formulario
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="col-12 shadow-lg p-3 mt-5 bg-body rounded">
+                    <h3>Estudiantes Registrados</h3>
+                    <div id="idTablaEstudiantes">
+                        Ninguno
+                    </div>
+                </div>
+
+                <!-- PERMITE MOSTRAR NOTIFICACIONES -->
+                <div class="toast-container top-0 start-50 translate-middle-x pt-4 mt-1" style="z-index: 1035;">
+                    <div id="idNotificacion" class="toast text-bg-success" role="alert" aria-live="assertive"
+                        aria-atomic="true">
+                        <div class="toast-header">
+                            <i class="bi bi-bell"></i>
+                            <strong class="me-auto">Notificación</strong>
+                            <small>Hace un momento</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body" id="idMensaje">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/fichaEstudiantes.js" defer></script>
+</body>
+
+</html>
